@@ -1,0 +1,202 @@
+apiVersion: v1
+items:
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/cert-utils-operator.cert-utils-operator: ""
+    name: cert-utils-operator
+    namespace: cert-utils-operator
+  spec:
+    channel: alpha
+    installPlanApproval: Automatic
+    name: cert-utils-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/tackle-operator.konveyor-tackle: ""
+    name: tackle-operator
+    namespace: openshift-operators
+  spec:
+    channel: stable-v2.1
+    installPlanApproval: Automatic
+    name: tackle-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/openshift-cert-manager-operator.openshift-cert-manager-operator: ""
+    name: openshift-cert-manager-operator
+    namespace: openshift-cert-manager-operator
+  spec:
+    channel: tech-preview
+    installPlanApproval: Automatic
+    name: openshift-cert-manager-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    currentCSV: openshift-cert-manager.v1.7.1
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/jaeger-product.openshift-distributed-tracing: ""
+    name: jaeger-product
+    namespace: openshift-distributed-tracing
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: jaeger-product
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/cluster-logging.openshift-logging: ""
+    name: cluster-logging
+    namespace: openshift-logging
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: cluster-logging
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/grafana-cloud-log-forwarder-operator.openshift-logging: ""
+    name: grafana-cloud-log-forwarder-operator
+    namespace: openshift-logging
+  spec:
+    channel: alpha
+    installPlanApproval: Automatic
+    name: grafana-cloud-log-forwarder-operator
+    source: certified-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/elasticsearch-operator.openshift-operators-redhat: ""
+    name: elasticsearch-operator
+    namespace: openshift-operators-redhat
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: elasticsearch-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/loki-operator.openshift-operators-redhat: ""
+    name: loki-operator
+    namespace: openshift-operators-redhat
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: loki-operator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/amq-broker-rhel8.openshift-operators: ""
+    name: amq-broker-rhel8
+    namespace: openshift-operators
+  spec:
+    channel: 7.10.x
+    installPlanApproval: Automatic
+    name: amq-broker-rhel8
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+    startingCSV: amq-broker-operator.v7.10.2-opr-2
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/devspaces.openshift-operators: ""
+    name: devspaces
+    namespace: openshift-operators
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: devspaces
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/kiali-ossm.openshift-operators: ""
+    name: kiali-ossm
+    namespace: openshift-operators
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: kiali-ossm
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/netobserv-operator.openshift-operators: ""
+    name: netobserv-operator
+    namespace: openshift-operators
+  spec:
+    channel: latest
+    installPlanApproval: Automatic
+    name: netobserv-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/openshift-pipelines-operator-rh.openshift-operators: ""
+    name: openshift-pipelines-operator-rh
+    namespace: openshift-operators
+  spec:
+    channel: latest
+    installPlanApproval: Automatic
+    name: openshift-pipelines-operator-rh
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/servicemeshoperator.openshift-operators: ""
+    name: servicemeshoperator
+    namespace: openshift-operators
+  spec:
+    channel: stable
+    installPlanApproval: Automatic
+    name: servicemeshoperator
+    source: redhat-operators
+    sourceNamespace: openshift-marketplace
+- apiVersion: operators.coreos.com/v1alpha1
+  kind: Subscription
+  metadata:
+    labels:
+      operators.coreos.com/grafana-operator.openshift-operators: ""
+    name: grafana-operator
+    namespace: openshift-operators
+  spec:
+    channel: v4
+    installPlanApproval: Automatic
+    name: grafana-operator
+    source: community-operators
+    sourceNamespace: openshift-marketplace
+kind: List
+metadata:
+  resourceVersion: ""

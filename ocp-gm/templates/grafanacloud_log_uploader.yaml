@@ -1,0 +1,14 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/grafana-cloud-log-forwarder-operator.openshift-logging: ''
+  name: grafana-cloud-log-forwarder-operator
+  namespace: openshift-logging
+spec:
+  channel: alpha
+  installPlanApproval: Automatic
+  name: grafana-cloud-log-forwarder-operator
+  source: certified-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: grafana-cloud-log-forwarder-operator.v1.0.2
