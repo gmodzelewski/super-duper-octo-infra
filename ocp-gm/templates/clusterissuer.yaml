@@ -1,4 +1,7 @@
 apiVersion: v1
+kind: List
+metadata:
+  resourceVersion: ""
 items:
 - apiVersion: cert-manager.io/v1
   kind: ClusterIssuer
@@ -59,6 +62,3 @@ items:
       - http01:
           ingress:
             class: istio
-kind: List
-metadata:
-  resourceVersion: ""

@@ -2,24 +2,6 @@ kind: List
 metadata:
   resourceVersion: ""
 items:
-- apiVersion: v1
-  kind: Namespace
-  metadata:
-    name: openshift-mta
-- apiVersion: operators.coreos.com/v1alpha1
-  kind: Subscription
-  metadata:
-    labels:
-      operators.coreos.com/mta-operator.openshift-mta: ""
-    name: mta-operator
-    namespace: openshift-mta
-  spec:
-    channel: stable-v6.0
-    installPlanApproval: Automatic
-    name: mta-operator
-    source: redhat-operators
-    sourceNamespace: openshift-marketplace
-    startingCSV: mta-operator.v6.0.0
 - apiVersion: tackle.konveyor.io/v1alpha1
   kind: Tackle
   metadata:

@@ -1,0 +1,81 @@
+kind: List
+metadata:
+  resourceVersion: ""
+items:
+- apiVersion: maistra.io/v2
+  kind: ServiceMeshControlPlane
+  metadata:
+    name: basic
+    namespace: service-mesh
+  spec:
+    addons:
+      grafana:
+        enabled: true
+      jaeger:
+        install:
+          storage:
+            type: Memory
+      kiali:
+        enabled: true
+      prometheus:
+        enabled: true
+    gateways:
+      ingress:
+        service:
+          ports:
+          - name: status-port
+            port: 15021
+            protocol: TCP
+            targetPort: 15021
+          - name: http2
+            port: 80
+            protocol: TCP
+            targetPort: 8080
+          - name: https
+            port: 9443
+            protocol: TCP
+            targetPort: 9443
+          - name: tcp-istiod
+            port: 15012
+            protocol: TCP
+            targetPort: 15012
+          - name: tls
+            port: 15443
+            protocol: TCP
+            targetPort: 15443
+          - name: grpc
+            port: 9000
+            targetPort: 9000
+          type: ClusterIP
+    profiles:
+    - default
+    proxy:
+      networking:
+        trafficControl:
+          outbound:
+            policy: ALLOW_ANY
+    runtime:
+      components:
+        tracing.jaeger:
+          container:
+            env:
+              METRICS_STORAGE_TYPE: prometheus
+              PROMETHEUS_SERVER_URL: http://prometheus.service-mesh.svc.cluster.local:9090
+    security:
+      dataPlane:
+        mtls: true
+    telemetry:
+      type: Istiod
+    tracing:
+      sampling: 10000
+      type: Jaeger
+    version: v2.3
+
+- apiVersion: maistra.io/v1
+  kind: ServiceMeshMemberRoll
+  metadata:
+    name: default
+    namespace: service-mesh
+  spec:
+    members:
+    - octo-happiness
