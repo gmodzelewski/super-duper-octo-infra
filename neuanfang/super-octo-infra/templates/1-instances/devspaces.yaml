@@ -13,6 +13,8 @@ spec:
       logLevel: ERROR
     imagePuller:
       enable: true
+      spec:
+        images: "camelk-developer-image=quay.io/modzelewski/camelk-developer-image;che-theia=quay.io/eclipse/che-theia:next"
     metrics:
       enable: true
     pluginRegistry:
