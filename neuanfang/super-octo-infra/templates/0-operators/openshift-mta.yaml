@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/sa.scc.mcs: s0:c27,c19
+    openshift.io/sa.scc.supplemental-groups: 1000740000/10000
+    openshift.io/sa.scc.uid-range: 1000740000/10000
+  labels:
+    kubernetes.io/metadata.name: openshift-mta
+    olm.operatorgroup.uid/2e5d0a28-b2bb-44d4-b32b-3fe7c80ae9d1: ""
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/audit-version: v1.24
+    pod-security.kubernetes.io/warn: baseline
+    pod-security.kubernetes.io/warn-version: v1.24
+    security.openshift.io/scc.podSecurityLabelSync: "true"
+  name: openshift-mta
+spec:
+  finalizers:
+  - kubernetes
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  labels:
+    operators.coreos.com/mta-operator.openshift-mta: ""
+  name: mta-operator
+  namespace: openshift-mta
+spec:
+  channel: stable-v7.0
+  installPlanApproval: Automatic
+  name: mta-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: mta-operator.v7.0.2
+apiVersion: operators.coreos.com/v1alpha1
+---
+kind: Subscription
+metadata:
+  annotations:
+    olm.generated-by: install-rpbqr
+  labels:
+    olm.managed: "true"
+    operators.coreos.com/rhsso-operator.openshift-mta: ""
+  name: rhsso-operator-stable-redhat-operators-openshift-marketplace
+  namespace: openshift-mta
+spec:
+  channel: stable
+  installPlanApproval: Automatic
+  name: rhsso-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  startingCSV: rhsso-operator.7.6.7-opr-002

@@ -1,0 +1,10 @@
+apiVersion: camel.apache.org/v1
+kind: IntegrationPlatform
+metadata:
+  annotations:
+    camel.apache.org/operator.id: camel-k
+  labels:
+    app: camel-k
+    camel.apache.org/platform.generated: "true"
+  name: camel-k
+  namespace: openshift-operators
