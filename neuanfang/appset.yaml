@@ -5,11 +5,6 @@ metadata:
   namespace: openshift-gitops 
 spec:
   generators:
-  # - git:
-  #     repoURL: "https://github.com/gmodzelewski/super-duper-octo-infra"
-  #     revision: main
-  #     files:
-  #     - path: "stages/**/config.json"
   - list:
       elements:
         - stage: dev
@@ -23,15 +18,13 @@ spec:
         repoURL: "https://github.com/gmodzelewski/super-duper-octo-infra"
         path: neuanfang/super-octo-infra
         helm:
-          # valueFiles: 
-          # - values.{{cluster}}.yaml
           parameters:
           - name: feature_flag_workshop_camelk
             value: "true"
-          # - name: feature_flag_workshop_gitops
-          #   value: "false"
-          # - name: feature_flag_workshop_mta
-          #   value: "false"
+          - name: feature_flag_workshop_gitops
+            value: "true"
+          - name: feature_flag_workshop_mta
+            value: "true"
       destination:
         server: 'https://kubernetes.default.svc' 
         namespace: '{{namespace}}'

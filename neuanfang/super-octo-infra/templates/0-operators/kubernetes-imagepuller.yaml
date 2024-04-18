@@ -1,4 +1,4 @@
-{{- if .Values.firstrun }}
+{{- if .Values.feature_flag_workshop_camelk }}
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
