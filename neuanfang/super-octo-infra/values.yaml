@@ -1,0 +1,5 @@
+feature_flag_workshop_camelk: false
+feature_flag_workshop_gitops: false
+feature_flag_workshop_mta: false
+
+firstrun: true

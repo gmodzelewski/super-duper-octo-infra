@@ -1,3 +1,4 @@
+{{- if .Values.feature_flag_workshop_mta }}
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -50,3 +51,4 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   startingCSV: rhsso-operator.7.6.7-opr-002
+{{- end }}

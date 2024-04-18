@@ -1,3 +1,4 @@
+{{- if .Values.feature_flag_workshop_gitops }}
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -12,3 +13,4 @@ spec:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   startingCSV: openshift-pipelines-operator-rh.v1.14.3
+{{- end }}

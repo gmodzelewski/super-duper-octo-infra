@@ -1,3 +1,4 @@
+{{- if .Values.feature_flag_workshop_camelk }}
 apiVersion: camel.apache.org/v1
 kind: IntegrationPlatform
 metadata:
@@ -8,3 +9,4 @@ metadata:
     camel.apache.org/platform.generated: "true"
   name: camel-k
   namespace: openshift-operators
+{{- end }}

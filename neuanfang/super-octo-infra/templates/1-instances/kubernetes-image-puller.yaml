@@ -1,3 +1,4 @@
+{{- if .Values.feature_flag_workshop_camelk }}
 apiVersion: che.eclipse.org/v1alpha1
 kind: KubernetesImagePuller
 metadata:
@@ -9,3 +10,4 @@ spec:
   deploymentName: kubernetes-image-puller
   imagePullerImage: quay.io/eclipse/kubernetes-image-puller:next
   images: camelk-developer-image=quay.io/modzelewski/camelk-developer-image;che-theia=quay.io/eclipse/che-theia:next
+{{- end }}
