@@ -4,29 +4,16 @@ metadata:
   name: super-octo-infra
   namespace: openshift-gitops 
 spec:
-  # generators: 
+  generators:
   # - git:
   #     repoURL: "https://github.com/gmodzelewski/super-duper-octo-infra"
   #     revision: main
   #     files:
   #     - path: "stages/**/config.json"
-  # - list:
-  #     elements:
-  #     - cluster: dev
-  #       url: https://kubernetes.default.svc
-  #       namespace: gitops-demo-dev
-  #       imageTag: "latest"
-  #       followChangesForBranch: "main"
-  #     - cluster: stage
-  #       url: https://kubernetes.default.svc
-  #       namespace: gitops-demo-stage
-  #       imageTag: "Release-1.0.2"
-  #       followChangesForBranch: "Release-1.0" # build when startsWith
-  #     - cluster: prod
-  #       url: https://kubernetes.default.svc
-  #       namespace: gitops-demo-prod
-  #       imageTag: "Release-1.0.0"
-  #       followChangesForBranch: "" # -> empty means don't follow
+  - list:
+      elements:
+        - stage: dev
+          namespace: super-octo-infra  
   template:
     metadata:
       name: 'super-octo-infra-{{stage}}-app'
@@ -39,23 +26,21 @@ spec:
           # valueFiles: 
           # - values.{{cluster}}.yaml
           parameters:
-          # - name: feature_flag_workshop_camelk
-          #   value: false
+          - name: feature_flag_workshop_camelk
+            value: "true"
           # - name: feature_flag_workshop_gitops
-          #   value: false
+          #   value: "false"
           # - name: feature_flag_workshop_mta
-          #   value: false
-          - name: firstrun
-            value: true  
+          #   value: "false"
       destination:
-        server: '{{url}}' 
+        server: 'https://kubernetes.default.svc' 
         namespace: '{{namespace}}'
       syncPolicy: 
         automated:
           selfHeal: true
           prune: true
-        # syncOptions:
-        # - CreateNamespace=true
+        syncOptions:
+        - CreateNamespace=true
       ignoreDifferences:
       - group: image.openshift.io
         kind: ImageStream
