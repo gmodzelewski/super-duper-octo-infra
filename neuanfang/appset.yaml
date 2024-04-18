@@ -22,9 +22,9 @@ spec:
           - name: feature_flag_workshop_camelk
             value: "true"
           - name: feature_flag_workshop_gitops
-            value: "true"
+            value: "false"
           - name: feature_flag_workshop_mta
-            value: "true"
+            value: "false"
       destination:
         server: 'https://kubernetes.default.svc' 
         namespace: '{{namespace}}'
