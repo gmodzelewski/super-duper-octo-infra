@@ -25,6 +25,8 @@ spec:
             value: "false"
           - name: feature_flag_workshop_mta
             value: "false"
+          - name: feature_flag_workshop_rhacs
+            value: "true"
       destination:
         server: 'https://kubernetes.default.svc' 
         namespace: '{{namespace}}'
